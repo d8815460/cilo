@@ -13,3 +13,13 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #endif
+
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <Parse.h>
+    #import "CMCache.h"
+    #import "CMConstants.h"
+    #import "CMUtility.h"
+#endif

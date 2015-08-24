@@ -112,7 +112,7 @@ _Pragma("clang diagnostic pop") \
     CGPoint v =[recognizer velocityInView:recognizer.view];
     if (recognizer.direction == UISwipeGestureRecognizerDirectionLeft || recognizer.direction == UISwipeGestureRecognizerDirectionRight) {
         
-        if( (abs(v.x) >= _touchSpeed) && !_panning)
+        if( (fabs(v.x) >= _touchSpeed) && !_panning)
         {
             _panning = YES;
             
@@ -133,7 +133,7 @@ _Pragma("clang diagnostic pop") \
         }
         
     } else {
-        if( (abs(v.y) >= _touchSpeed) && !_panning)
+        if( (fabs(v.y) >= _touchSpeed) && !_panning)
         {
             _panning = YES;
             

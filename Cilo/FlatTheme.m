@@ -15,7 +15,7 @@
 +(void)styleNavigationBar:(UINavigationBar*)bar withFontName:(NSString*)navigationTitleFont andColor:(UIColor*)color{
     
     bar.barTintColor = color;
-    bar.titleTextAttributes = @{NSForegroundColorAttributeName : mainOrangeColor,
+    bar.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor yellowColor],
                                 NSFontAttributeName : [UIFont fontWithName:navigationTitleFont size:18.0f]};
     
 }

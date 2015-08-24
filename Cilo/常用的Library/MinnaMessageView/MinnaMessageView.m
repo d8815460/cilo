@@ -20,7 +20,7 @@
         // [self.layer setBorderWidth:1.0];
         // [self.layer setBorderColor:[[UIColor yellowColor] CGColor]];
         [self setOpaque:NO];
-        [self setBackgroundColor:mainOrangeColor];
+        [self setBackgroundColor:[UIColor yellowColor]];
         
         //create the button
         self.dismissButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];

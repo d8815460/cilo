@@ -9,8 +9,7 @@
 #import "CMUtility.h"
 #import "UIImage+ResizeAdditions.h"
 #import <MBProgressHUD.h>
-#import "JSONKit.h"
-
+#import <JSONKit.h>
 typedef enum {
     ADVNavigationTypeTab = 0,
     ADVNavigationTypeMenu
@@ -1414,14 +1413,6 @@ typedef enum {
 }
 
 
-+(void) addMinnaListener:(id<MinnaNotificationProtocol>) listener
-{
-    [(AppDelegate *)[[UIApplication sharedApplication] delegate] addMinnaListener:listener];
-}
-+(void) broadcastMinnaMessage:(NSString *)broadcastMessage
-{
-    [(AppDelegate *)[[UIApplication sharedApplication] delegate] broadcastMinnaNotificationMessage:broadcastMessage];
-}
 +(NSString *) CStringToNSString:(char *) cString ReplaceCRLF:(BOOL) replaceCRLF
 {
     NSString *myNSString = [NSString stringWithUTF8String:cString];

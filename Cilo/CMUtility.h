@@ -89,13 +89,13 @@
 + (void)nonOneGetThisJob:(UIButton *)button InTheView:(UIView *)theView;
 
 //看別人的任務，系統推薦
-+ (void)SystemAutoFromQuery:(PFQuery *)helperList withObjects:(NSArray *)objects AndCaseObject:(PFObject *)caseObject InTheView:(UIView *)theView ChangeButtonName:(UIButton *)button;
+//+ (void)SystemAutoFromQuery:(PFQuery *)helperList withObjects:(NSArray *)objects AndCaseObject:(PFObject *)caseObject InTheView:(UIView *)theView ChangeButtonName:(UIButton *)button;
 
 //業主自選，我已經接過
 + (void)havedGetThisJob:(UIButton *)button InTheView:(UIView *)theView;
 
 //看別人的任務，業主自選
-+ (void)CustomerChoseFromQuery:(PFQuery *)helperList withObjects:(NSArray *)objects AndCaseObject:(PFObject *)caseObject InTheView:(UIView *)theView ChangeButtonName:(UIButton *)button;
+//+ (void)CustomerChoseFromQuery:(PFQuery *)helperList withObjects:(NSArray *)objects AndCaseObject:(PFObject *)caseObject InTheView:(UIView *)theView ChangeButtonName:(UIButton *)button;
 
 + (void)drawSideDropShadowForRect:(CGRect)rect inContext:(CGContextRef)context;
 + (void)drawSideAndBottomDropShadowForRect:(CGRect)rect inContext:(CGContextRef)context;

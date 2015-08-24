@@ -107,7 +107,7 @@
 
 
 //餐廳資料
-- (void)setAttributesForRestaurant:(PFObject *)restaurant dates:(NSArray *)dates messagers:(NSArray *)messagers;
+//- (void)setAttributesForRestaurant:(PFObject *)restaurant dates:(NSArray *)dates messagers:(NSArray *)messagers;
 - (NSDictionary *)attributesForRestaurant:(PFObject *)restaurant;
 - (void)setThisRestaurantIsFollowedByCurrentUser:(PFObject *)restaurant followed:(BOOL)followed;
 - (NSNumber *)dateCountForRestaurant:(PFObject *)restaurant;
