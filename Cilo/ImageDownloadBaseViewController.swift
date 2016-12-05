@@ -24,7 +24,7 @@ class ImageDownloadBaseViewController: UIViewController {
     /**
     Set the navigation controller's delegate to nil when the view is about to disappear
 
-    :param: animated YES if to animate it
+    - parameter animated: YES if to animate it
     */
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -34,8 +34,8 @@ class ImageDownloadBaseViewController: UIViewController {
     /**
     When the user stopped dragging the tableView (scrolling)
 
-    :param: scrollView the scrollView
-    :param: decelerate YES, if the scrollView is decelerating
+    - parameter scrollView: the scrollView
+    - parameter decelerate: YES, if the scrollView is decelerating
     */
     func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
@@ -46,7 +46,7 @@ class ImageDownloadBaseViewController: UIViewController {
     /**
     only start downloading if the user stopped scrolling
 
-    :param: scrollView scrollview
+    - parameter scrollView: scrollview
     */
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
 //        loadImagesForVisibleRows()
@@ -57,8 +57,8 @@ class ImageDownloadBaseViewController: UIViewController {
     Get the already existing ImageDownloader instance from the imageDownloadsInProgress dictionary, if found do nothing, if not
     it means it needs to create a new one and start the download.
 
-    :param: object    object to download the image for
-    :param: indexPath indexPath where the object is displayed at
+    - parameter object:    object to download the image for
+    - parameter indexPath: indexPath where the object is displayed at
     */
     func startImageDownload(object: PFFile, indexPath: NSIndexPath) {
         var downloader = imageDownloadsInProgress[indexPath]
@@ -78,9 +78,9 @@ class ImageDownloadBaseViewController: UIViewController {
     /**
     Called when an image download is finished to update the cell's imageView at the given indexPath
 
-    :param: object    the object that needs to be updated
-    :param: indexPath the cell's indexPath
-    :param: image     the image that was downloaded
+    - parameter object:    the object that needs to be updated
+    - parameter indexPath: the cell's indexPath
+    - parameter image:     the image that was downloaded
     */
     func updateTableViewCell(object: PFFile, atIndexPath indexPath: NSIndexPath, image: UIImage) {
         // implement it in the subclasses

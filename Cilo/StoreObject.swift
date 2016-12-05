@@ -54,7 +54,7 @@ class StoreObject: BaseObject {
     /**
       Init method where we convert the PFObject to StoreObject to be more flexible in the future
     
-      :param: parseObject the PFObject object to convert to StoreObject
+      - parameter parseObject: the PFObject object to convert to StoreObject
     
       :return: instancetype - self
     */
@@ -80,7 +80,7 @@ class StoreObject: BaseObject {
     /**
       Calculates the distance between the current location and the location of the store
     
-      :param: currentLocation the user's current location
+      - parameter currentLocation: the user's current location
     */
     func calculateDistanceBetweenCurrentLocation(currentLocation: CLLocation?) {
         if (currentLocation != nil) {

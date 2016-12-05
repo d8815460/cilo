@@ -39,7 +39,8 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
         newsQuery.orderByAscending("createdAt")
 //        newsQuery.orderByDescending("createdAt")
         newsQuery.findObjectsInBackgroundWithBlock { (news, error) -> Void in
-            if let newsArray = news as? [PFObject]
+            let newsArray:[PFObject]! = news
+            if ( news?.count > 0 )
             {
                 var tempNewsArray = [NewsObject]()
                 for newsObject in newsArray
@@ -98,12 +99,12 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
     /**
     Set the navigation controller's delegate to this controller and deselect a cell, if there is one selected
     
-    :param: animated YES if to animate it
+    - parameter animated: YES if to animate it
     */
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.delegate = self
-        if let selectedIndexPath = tableView.indexPathForSelectedRow() {
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRowAtIndexPath(selectedIndexPath, animated: true)
         }
     }
@@ -111,7 +112,7 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
     /**
     Set the navigation controller's delegate to nil when the view is about to disappear
     
-    :param: animated YES if to animate it
+    - parameter animated: YES if to animate it
     */
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -132,7 +133,7 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
         Called when the user scrolls the view, and updates the cells to get the parallax effect
     */
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let visibleCells: [NewsTableViewCell] = tableView.visibleCells() as! [NewsTableViewCell]
+        let visibleCells: [NewsTableViewCell] = tableView.visibleCells as! [NewsTableViewCell]
         for newsTableViewCell in visibleCells
         {
             let heightOfImageView: CGFloat = CGRectGetHeight(newsTableViewCell.thumbnailView.frame)
@@ -144,9 +145,9 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
     /**
     Update the cell with the downloaded image
 
-    :param: object    the object that holds the imageURL
-    :param: indexPath the indexPath for the cell
-    :param: image     the image that was downloaded
+    - parameter object:    the object that holds the imageURL
+    - parameter indexPath: the indexPath for the cell
+    - parameter image:     the image that was downloaded
     */
     override func updateTableViewCell(object: PFFile, atIndexPath indexPath: NSIndexPath, image: UIImage) {
         let cellToUpdate = self.tableView.cellForRowAtIndexPath(indexPath) as! NewsTableViewCell?
@@ -168,10 +169,10 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
     /**
         Get the newsObject for the given indexPath and set the labels with the values
     
-        :param: tableView the tableView
-        :param: indexPath the indexPath
+        - parameter tableView: the tableView
+        - parameter indexPath: the indexPath
     
-        :returns: the cell
+        - returns: the cell
     */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("NewsTableViewCell") as! NewsTableViewCell
@@ -209,10 +210,10 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
     /**
         Return how many rows the tableView should have
     
-        :param: tableView the tableView
-        :param: section   which section needs to work with
+        - parameter tableView: the tableView
+        - parameter section:   which section needs to work with
     
-        :returns: how many rows
+        - returns: how many rows
     */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return objectsArray.count
@@ -225,8 +226,8 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
     /**
     Called when a segue is about to be executed. Get the object for the given indexPath and pass it on to the detailView
 
-    :param: segue  segue that has been called
-    :param: sender which object triggered the segue
+    - parameter segue:  segue that has been called
+    - parameter sender: which object triggered the segue
     */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let newsDetailViewController = segue.destinationViewController as! NewsListDetailViewController
@@ -243,12 +244,12 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
     /**
     Return the tableViewCell for the passed in newsObject
     
-    :param: newsObject the object which index is needed
+    - parameter newsObject: the object which index is needed
     
-    :returns: the cell
+    - returns: the cell
     */
     func tableViewCellForNewsObject(newsObject: NewsObject) -> NewsTableViewCell? {
-        let newsObjectIndex = find(objectsArray, newsObject)
+        let newsObjectIndex = objectsArray.indexOf(newsObject)
         if newsObjectIndex == NSNotFound {
             return nil
         }
@@ -260,12 +261,12 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
     /**
     Called to allow the delegate to return a noninteractive animator object for use during view controller transitions.
     
-    :param: navigationController The navigation controller whose navigation stack is changing
-    :param: operation            The type of transition operation that is occurring.
-    :param: fromVC               The currently visible view controller.
-    :param: toVC                 The view controller that should be visible at the end of the transition.
+    - parameter navigationController: The navigation controller whose navigation stack is changing
+    - parameter operation:            The type of transition operation that is occurring.
+    - parameter fromVC:               The currently visible view controller.
+    - parameter toVC:                 The view controller that should be visible at the end of the transition.
 
-    :returns: The animator object responsible for managing the transition animations, or nil if you want to use the standard navigation controller transitions.
+    - returns: The animator object responsible for managing the transition animations, or nil if you want to use the standard navigation controller transitions.
     */
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if fromVC == self && toVC.isKindOfClass(NewsListDetailViewController)
@@ -281,7 +282,7 @@ class NewsListViewController: ImageDownloadBaseViewController, UITableViewDataSo
     /**
         The preferred status bar style for the view controller.
     
-        :returns: A UIStatusBarStyle key indicating your preferred status bar style for the view controller.
+        - returns: A UIStatusBarStyle key indicating your preferred status bar style for the view controller.
     */
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent

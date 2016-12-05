@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SignInViewController : PFLogInViewController, UITextFieldDelegate {
+class SignInViewController : PFLogInViewController {
     
     @IBOutlet var titleLabel : UILabel!
     
@@ -36,7 +36,7 @@ class SignInViewController : PFLogInViewController, UITextFieldDelegate {
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
@@ -253,7 +253,7 @@ class SignInViewController : PFLogInViewController, UITextFieldDelegate {
         var userName = userTextField.text
         var userPassword = passwordTextField.text
         
-        PFUser.logInWithUsernameInBackground(userName, password: userPassword) { (user: PFUser?, error: NSError?) -> Void in
+        PFUser.logInWithUsernameInBackground(userName!, password: userPassword!) { (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 self.activityIndicator.stopAnimating()
                 //通常取消登錄流程即可
@@ -265,8 +265,8 @@ class SignInViewController : PFLogInViewController, UITextFieldDelegate {
             } else {
                 self.activityIndicator.stopAnimating()
                 
-                if let message: AnyObject = error!.userInfo!["error"] {
-                    if let message: AnyObject = error!.userInfo!["error"] {
+                if let message: AnyObject = error!.userInfo["error"] {
+                    if let message: AnyObject = error!.userInfo["error"] {
                         let alertController = UIAlertController(title: "登錄時發生錯誤",
                             message: message as? String,
                             preferredStyle: UIAlertControllerStyle.Alert
@@ -291,7 +291,7 @@ class SignInViewController : PFLogInViewController, UITextFieldDelegate {
             (user: PFUser?, error: NSError?) -> Void in
             if let user = user {
                 if user.isNew {
-                    println("User signed up and logged in through Facebook!")
+                    print("User signed up and logged in through Facebook!")
 //                    self.activityIndicator.stopAnimating()
                     //通常取消登錄流程即可
                     dispatch_async(dispatch_get_main_queue()) {
@@ -300,7 +300,7 @@ class SignInViewController : PFLogInViewController, UITextFieldDelegate {
                         })
                     }
                 } else {
-                    println("User logged in through Facebook!")
+                    print("User logged in through Facebook!")
 //                    self.activityIndicator.stopAnimating()
                     //通常取消登錄流程即可
                     self.dismissViewControllerAnimated(true, completion: { () -> Void in
@@ -308,21 +308,21 @@ class SignInViewController : PFLogInViewController, UITextFieldDelegate {
                     })
                 }
             } else {
-                println("Uh oh. The user cancelled the Facebook login.")
+                print("Uh oh. The user cancelled the Facebook login.")
                 //發生了一些錯誤，造成無法登錄
-                if let message: AnyObject = error!.userInfo!["error"] {
-                    if let message: AnyObject = error!.userInfo!["error"] {
-                        let alertController = UIAlertController(title: "登錄時發生錯誤",
-                            message: message as? String,
-                            preferredStyle: UIAlertControllerStyle.Alert
-                        )
-                        alertController.addAction(UIAlertAction(title: "確定",
-                            style: UIAlertActionStyle.Default,
-                            handler: nil)
-                        )
-                        // Display alert
-                        self.presentViewController(alertController, animated: true, completion: nil)
-                    }
+                if let message: AnyObject = error!.userInfo["error"] {
+//                    if let message: AnyObject = error!.userInfo!"error"] {
+//                        let alertController = UIAlertController(title: "登錄時發生錯誤",
+//                            message: message as? String,
+//                            preferredStyle: UIAlertControllerStyle.Alert
+//                        )
+//                        alertController.addAction(UIAlertAction(title: "確定",
+//                            style: UIAlertActionStyle.Default,
+//                            handler: nil)
+//                        )
+//                        // Display alert
+//                        self.presentViewController(alertController, animated: true, completion: nil)
+//                    }
                 }
             }
         }

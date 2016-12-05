@@ -22,12 +22,12 @@ class DishObject: BaseObject {
     /**
     Initialiser method to store the properties
 
-    :param: name  name of the dish
-    :param: desc  description of the dish
-    :param: price price to display
-    :param: image image of the dish
+    - parameter name:  name of the dish
+    - parameter desc:  description of the dish
+    - parameter price: price to display
+    - parameter image: image of the dish
 
-    :returns: return a DishObject
+    - returns: return a DishObject
     */
     init(name: String, desc: String, price: NSNumber, image: PFFile) {
         dishDescription = desc
@@ -46,7 +46,7 @@ class DishObject: BaseObject {
     /**
     Format your price however you want here.
 
-    :returns: Returns the formatted price
+    - returns: Returns the formatted price
     */
     func priceString() -> String {
         if let price = price {

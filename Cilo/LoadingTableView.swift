@@ -21,11 +21,11 @@ class LoadingTableView: UITableView {
     /**
     Called after loading from a nib or Storyboard file. Creating the loading indicator view and adding it as a subview.
 
-    :param: aDecoder self
+    - parameter aDecoder: self
 
-    :returns: self
+    - returns: self
     */
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         loadingImageView = UIImageView(image: loadingImage)
         super.init(coder: aDecoder)
         addSubview(loadingImageView)

@@ -27,9 +27,9 @@ class StoreListMarkerView: UIView {
     /**
         Initialiser method, to set up the view.
     
-        :param: frame frame of the view
+        - parameter frame: frame of the view
     
-        :returns: self
+        - returns: self
     */
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,11 +39,11 @@ class StoreListMarkerView: UIView {
     /**
         Initialiser method, called after the nib is loaded
     
-        :param: aDecoder NSCoder object
+        - parameter aDecoder: NSCoder object
     
-        :returns: self
+        - returns: self
     */
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupView()
     }
@@ -71,7 +71,7 @@ class StoreListMarkerView: UIView {
     /**
         Draws the look of the view. In this case, the view should have a white background, with green stroke around it.
     
-        :param: rect the rectangle to draw in
+        - parameter rect: the rectangle to draw in
     */
     override func drawRect(rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()

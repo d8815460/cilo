@@ -83,8 +83,8 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
         emailTextField.resignFirstResponder()
         //開始進入忘記密碼流程，主要發送變更密碼email
         var userEmailAddress = emailTextField.text
-        userEmailAddress = userEmailAddress.lowercaseString
-        PFUser.requestPasswordResetForEmailInBackground(userEmailAddress, block: { (succeed, error: NSError?) -> Void in
+        userEmailAddress = userEmailAddress!.lowercaseString
+        PFUser.requestPasswordResetForEmailInBackground(userEmailAddress!, block: { (succeed, error: NSError?) -> Void in
             if succeed {
                 let alertController = UIAlertController(title: "變更密碼函已寄送",
                     message: "請至信箱收取變更密碼函",
@@ -97,7 +97,7 @@ class ForgotPasswordViewController: UIViewController, UITextFieldDelegate {
                 // Display alert
                 self.presentViewController(alertController, animated: true, completion: nil)
             }else{
-                if let message: AnyObject = error!.userInfo!["error"] {
+                if let message: AnyObject = error!.userInfo["error"] {
                     let alertController = UIAlertController(title: "發生錯誤",
                         message: message as? String,
                         preferredStyle: UIAlertControllerStyle.Alert

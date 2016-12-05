@@ -47,7 +47,7 @@ class LoadingImageView: UIImageView {
     /**
     Initialiser method
     */
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         loadingIndicator = UIImageView()
         super.init(coder: aDecoder)
     }
@@ -62,7 +62,7 @@ class LoadingImageView: UIImageView {
     Method to setup the loading indicator
     */
     func setupLoadingIndicator() {
-        loadingIndicator.setTranslatesAutoresizingMaskIntoConstraints(false)
+        loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         loadingIndicator.animationImages = []
         loadingIndicator.animationDuration = 0.8
         addSubview(loadingIndicator)

@@ -20,7 +20,7 @@ class BaseObject: NSObject {
     /**
     Init method
 
-    :returns: self
+    - returns: self
     */
     override init() {
         super.init()

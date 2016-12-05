@@ -47,10 +47,12 @@ static AppDelegate *sharedDelegate;
     
     [PFAnalytics trackAppOpenedWithLaunchOptionsInBackground:launchOptions block:nil];
     
+    [PFUser enableAutomaticUser];
+    
     PFACL *defaultACL = [PFACL ACL];
     
     // If you would like all objects to be private by default, remove this line.
-    [defaultACL setPublicReadAccess:YES];
+    defaultACL.publicReadAccess = YES;
     
     [PFACL setDefaultACL:defaultACL withAccessForCurrentUser:YES];
     

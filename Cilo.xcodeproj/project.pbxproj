@@ -673,12 +673,14 @@
 		237EB5CE1B84A56600538E04 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "駿逸 陳";
 				TargetAttributes = {
 					237EB5D51B84A56600538E04 = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = D3QVFELAEF;
+						DevelopmentTeam = LX8P49F6F2;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -969,13 +971,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				DEVELOPMENT_TEAM = LX8P49F6F2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Cilo/PrefixHeader.pch";
 				INFOPLIST_FILE = Cilo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miiitech.ezcare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "848414de-b88b-4c99-a27a-0d3e118b1bbc";
+				PROVISIONING_PROFILE = "c172654a-180f-4d92-b1d5-8b67916cdc82";
+				PROVISIONING_PROFILE_SPECIFIER = "XC: com.miiitech.ezcare";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cilo/Cilo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -988,14 +994,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MIIITECH INC. (LX8P49F6F2)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MIIITECH INC. (LX8P49F6F2)";
+				DEVELOPMENT_TEAM = LX8P49F6F2;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Cilo/PrefixHeader.pch";
 				INFOPLIST_FILE = Cilo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.miiitech.ezcare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "848414de-b88b-4c99-a27a-0d3e118b1bbc";
+				PROVISIONING_PROFILE = "c172654a-180f-4d92-b1d5-8b67916cdc82";
+				PROVISIONING_PROFILE_SPECIFIER = "XC: com.miiitech.ezcare";
 				SWIFT_OBJC_BRIDGING_HEADER = "Cilo/Cilo-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

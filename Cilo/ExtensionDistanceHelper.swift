@@ -21,7 +21,7 @@ extension NSString {
     /**
        Returns a string with the right formatting.
     
-       :param: distanceValue the distance the distance value to use, to create the string
+       - parameter distanceValue: the distance the distance value to use, to create the string
        :return: NSString - distance string with the right formatting according to the user's locale settings
     */
     class func distanceStringWithValue(distanceValue: Double) -> NSString {
@@ -59,7 +59,7 @@ extension NSString {
     /**
        Return a string of a number to one decimal place and with commas & periods based on the locale.
     
-       :param: doubleValue the distance that needs to be converted
+       - parameter doubleValue: the distance that needs to be converted
     
        :return: NSString - the converted string
     */

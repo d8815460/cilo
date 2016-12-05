@@ -14,7 +14,7 @@ import UIKit
     /**
         Returns the current location object
     
-        :param: location current location of the user
+        - parameter location: current location of the user
     */
     func locationHandlerDidUpdateLocation(location: CLLocation)
 }
@@ -61,15 +61,15 @@ class LocationHandler: NSObject, CLLocationManagerDelegate {
         Tells the delegate that new location data is available. If the speed is bigger than zero, call the protocol method to let
         other classes know of the new data available
     
-        :param: manager The location manager object that generated the update event.
-        :param: locations An array of CLLocation objects containing the location data
+        - parameter manager: The location manager object that generated the update event.
+        - parameter locations: An array of CLLocation objects containing the location data
     */
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if let firstLocation = locations.first as? CLLocation
-        {
-            locationHandlerProtocol?.locationHandlerDidUpdateLocation(firstLocation)
-        }
-        currentUserLocation = locations.first as? CLLocation
-    }
+//    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+//        if let firstLocation = locations.first as? CLLocation
+//        {
+//            locationHandlerProtocol?.locationHandlerDidUpdateLocation(firstLocation)
+//        }
+//        currentUserLocation = locations.first as? CLLocation
+//    }
     
 }

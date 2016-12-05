@@ -18,8 +18,8 @@ class ImageDownloader: NSObject {
     /**
     Start downloading the image from the passed in url and calls the completionblock when finished
 
-    :param: object          the object that needs to download the image for
-    :param: completionBlock called after the request was finished
+    - parameter object:          the object that needs to download the image for
+    - parameter completionBlock: called after the request was finished
     */
     func startDownloadingImage(object: PFFile, completionBlock: (image: UIImage?) -> ()) {
 //        let url = NSURL(string: object.imageURL!)

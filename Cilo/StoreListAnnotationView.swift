@@ -28,12 +28,12 @@ class StoreListAnnotationView: MKAnnotationView {
     /**
         Initialiser method. Set the frame for the view, and add the markerView as a subview.
     
-        :param: annotation      the annotation
-        :param: reuseIdentifier the identifier
+        - parameter annotation:      the annotation
+        - parameter reuseIdentifier: the identifier
     
-        :returns: self
+        - returns: self
     */
-    override init!(annotation: MKAnnotation!, reuseIdentifier: String!) {
+    override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
 
         frame = CGRectMake(0.0, 0.0, 30.0, 30.0)
@@ -45,20 +45,20 @@ class StoreListAnnotationView: MKAnnotationView {
     /**
         Initialiser method
     
-        :param: aDecoder NSCoder object
+        - parameter aDecoder: NSCoder object
     
-        :returns: self
+        - returns: self
     */
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     /**
         Initialiser method
     
-        :param: frame frame to use
+        - parameter frame: frame to use
     
-        :returns: self
+        - returns: self
     */
     override init(frame: CGRect) {
         super.init(frame: frame)

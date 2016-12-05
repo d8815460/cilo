@@ -27,8 +27,8 @@ class LocationsDownloadManager: NSObject {
 
     Download Store objects from either Parse.com
 
-    :param: completionBlock called after the request is completed, returns the StoreObjects
-    :param: storeObjects    array of StoreObjects
+    - parameter completionBlock: called after the request is completed, returns the StoreObjects
+    - parameter storeObjects:    array of StoreObjects
     */
     func downloadStores(completionBlock: (error: NSError?, storeObjects: [StoreObject]?) -> ()) {
         downloadStoresFromParse({ (error, storeObjects) -> () in
@@ -39,8 +39,8 @@ class LocationsDownloadManager: NSObject {
     /**
     Download the Store objects from Parse.com
 
-    :param: completionBlock completionBlock that is called after the download is complete
-    :param: storeObjects array of StoreObjects
+    - parameter completionBlock: completionBlock that is called after the download is complete
+    - parameter storeObjects: array of StoreObjects
     */
     private func downloadStoresFromParse(completionBlock: (error: NSError?, storeObjects: [StoreObject]?) -> ()) {
         let storesQuery = PFQuery(className: "Store")
@@ -76,9 +76,9 @@ class LocationsDownloadManager: NSObject {
     /**
         Converts all the objects received from parse.com to StoreObject to more flexibility to updates
     
-        :param: parseObjects NSArray of parse objects
+        - parameter parseObjects: NSArray of parse objects
     
-        :returns: NSArray array of StoreObjects
+        - returns: NSArray array of StoreObjects
     */
     private func convertParseObjectsToStoreObjectsFromArray(parseObjects: [PFObject]) -> [StoreObject]? {
         var tempArray = [StoreObject]()

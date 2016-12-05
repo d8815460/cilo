@@ -23,7 +23,7 @@ class CustomizeAppearance: NSObject {
         UITabBar.appearance().tintColor = .globalTintColor()
         UITabBar.appearance().barTintColor = .whiteColor()
 
-        UITabBarItem.appearance().setTitleTextAttributes([UIColor.tabBarTitleNormalColor():NSForegroundColorAttributeName, UIFont.systemFontOfSize(10.0):NSFontAttributeName], forState: .Normal)
-        UITabBarItem.appearance().setTitleTextAttributes([UIColor.globalTintColor():NSForegroundColorAttributeName], forState: .Selected)
+//        UITabBarItem.appearance().setTitleTextAttributes([UIColor.tabBarTitleNormalColor():NSForegroundColorAttributeName, UIFont.systemFontOfSize(10.0):NSFontAttributeName], forState: .Normal)
+//        UITabBarItem.appearance().setTitleTextAttributes([UIColor.globalTintColor():NSForegroundColorAttributeName], forState: .Selected)
     }
 }

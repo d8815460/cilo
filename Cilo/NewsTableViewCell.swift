@@ -47,7 +47,7 @@ class NewsTableViewCell: UITableViewCell {
     /**
         Called when the user scrolls the listView to achieve the parallax effect
     
-        :param: offset the value which the imageView's frame should be offsetted
+        - parameter offset: the value which the imageView's frame should be offsetted
     */
     func offsetImageView(offset: CGPoint) {
         thumbnailView.frame = CGRectOffset(thumbnailView.bounds, offset.x, offset.y)

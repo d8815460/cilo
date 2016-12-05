@@ -15,8 +15,8 @@ class FilterCategoriesDownloadManager: NSObject {
     /**
         Downloads all the Category objects from Parse.com
 
-    :param: completionBlock completionBlock called after the request finished, returns the categories array and an errorMessage if any
-    :param: errorMessage errorMessage to return if any
+    - parameter completionBlock: completionBlock called after the request finished, returns the categories array and an errorMessage if any
+    - parameter errorMessage: errorMessage to return if any
     */
     func downloadStoreCategories(completionBlock: (categories: [StoreCategory]?, errorMessage: NSString?) -> Void) {
         var storeCategoriesArray: [StoreCategory] = []

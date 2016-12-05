@@ -55,9 +55,12 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
             self.performSegueWithIdentifier("meetYou", sender:SaveObject)
             
         }else{
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             //還沒登入過
-            self.performSegueWithIdentifier("signIn", sender: self)
+            let SaveObject:PFObject! = PFObject(className: "Activity")
+            SaveObject.setObject(PFUser.currentUser()!, forKey: "fromUser")
+            SaveObject.setObject(newsObjectToDisplay!.userObject, forKey: "toUser")
+            self.performSegueWithIdentifier("meetYou", sender:SaveObject)
 //            appDelegate.presentToLoginPage()
         }
     }
@@ -75,7 +78,7 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
     /**
         Sets the tabBar visible or hides it
     
-        :param: visible YES, if tabBar needs to be visible
+        - parameter visible: YES, if tabBar needs to be visible
     */
     func setTabbarVisibleWithAnimation(visible: Bool) {
         var tabBarFrame = navigationController?.tabBarController?.tabBar.frame
@@ -95,12 +98,12 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
     /**
     Called to allow the delegate to return a noninteractive animator object for use during view controller transitions.
     
-    :param: navigationController The navigation controller whose navigation stack is changing.
-    :param: operation            The type of transition operation that is occurring.
-    :param: fromVC               The currently visible view controller.
-    :param: toVC                 The view controller that should be visible at the end of the transition.
+    - parameter navigationController: The navigation controller whose navigation stack is changing.
+    - parameter operation:            The type of transition operation that is occurring.
+    - parameter fromVC:               The currently visible view controller.
+    - parameter toVC:                 The view controller that should be visible at the end of the transition.
     
-    :returns: The animator object responsible for managing the transition animations, or nil if you want to use the standard navigation controller transitions.
+    - returns: The animator object responsible for managing the transition animations, or nil if you want to use the standard navigation controller transitions.
     */
     func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if fromVC == self && toVC.isKindOfClass(NewsListViewController) {
@@ -113,10 +116,10 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
     /**
     Called to allow the delegate to return an interactive animator object for use during view controller transitions.
     
-    :param: navigationController The navigation controller whose navigation stack is changing.
-    :param: animationController The noninteractive animator object provided by the delegate’s navigationController:animationControllerForOperation:fromViewController:toViewController: method.
+    - parameter navigationController: The navigation controller whose navigation stack is changing.
+    - parameter animationController: The noninteractive animator object provided by the delegate’s navigationController:animationControllerForOperation:fromViewController:toViewController: method.
     
-    :returns: The animator object responsible for managing the transition animations, or nil if you want to use the standard navigation controller transitions.
+    - returns: The animator object responsible for managing the transition animations, or nil if you want to use the standard navigation controller transitions.
     */
     func navigationController(navigationController: UINavigationController, interactionControllerForAnimationController animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         if animationController.isKindOfClass(NewsTransitionDismissalAnimator) {
@@ -129,9 +132,9 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
     /**
     Called just after the navigation controller displays a view controller’s view and navigation item properties. Show the view elements
     
-    :param: navigationController The navigation controller that is showing the view and properties of a view controller.
-    :param: viewController       The view controller whose view and navigation item properties are being shown.
-    :param: animated             YES/true to animate the transition; otherwise, NOfalse.
+    - parameter navigationController: The navigation controller that is showing the view and properties of a view controller.
+    - parameter viewController:       The view controller whose view and navigation item properties are being shown.
+    - parameter animated:             YES/true to animate the transition; otherwise, NOfalse.
     */
     func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
         if viewController.isKindOfClass(NewsListDetailViewController) {
@@ -142,7 +145,7 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
     /**
     Handles the screenPopRecognizer's gestures, when certain value reached, either finish the transition, or pop the viewcontroller
     
-    :param: screenPopRecognizer the recognizer
+    - parameter screenPopRecognizer: the recognizer
     */
     func handlePopRecognizer(screenPopRecognizer: UIScreenEdgePanGestureRecognizer) {
         var progress = screenPopRecognizer.translationInView(view).x / CGRectGetWidth(view.frame)
@@ -242,7 +245,7 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
     /**
     Show the view elements with animation when the view will appear
     
-    :param: animated yes, if animated
+    - parameter animated: yes, if animated
     */
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -252,7 +255,7 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
     /**
         Hide the tabBar and set the navigation controller's delegate to this view
     
-        :param: animated yes, if animated
+        - parameter animated: yes, if animated
     */
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -263,7 +266,7 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
     /**
     Show the tabBar when the view is about to disappear
     
-    :param: animated yes, if animated
+    - parameter animated: yes, if animated
     */
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
@@ -274,7 +277,7 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
     /**
     Prefers to hide the status bar
 
-    :returns: true to hide it
+    - returns: true to hide it
     */
     override func prefersStatusBarHidden() -> Bool {
         return true
@@ -283,7 +286,7 @@ class NewsListDetailViewController: UIViewController, UINavigationControllerDele
     /**
     The preferred status bar style for the view controller.
 
-    :returns: A UIStatusBarStyle key indicating your preferred status bar style for the view controller.
+    - returns: A UIStatusBarStyle key indicating your preferred status bar style for the view controller.
     */
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent

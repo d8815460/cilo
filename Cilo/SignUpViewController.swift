@@ -188,7 +188,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     //MARK: - 註冊功能
     @IBAction func signUpWithUsernameAndPasswordPressed(sender: AnyObject) {
-        if count(userTextField.text!) > 10 || count(userTextField.text!) < 10 || !userTextField.text.hasPrefix("09"){
+        if (userTextField.text!).characters.count > 10 || (userTextField.text!).characters.count < 10 || !userTextField.text!.hasPrefix("09"){
             let alertController = UIAlertController(title: "註冊時發生錯誤",
                 message: "行動電話格式錯誤",
                 preferredStyle: UIAlertControllerStyle.Alert
@@ -225,7 +225,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
 //        self.signUpView?.signUpButton?.sendActionsForControlEvents(UIControlEvents.TouchUpInside)
         /* 自訂的UI才有 emailTextField
         */
-        if emailTextField.text.isEmpty {
+        if emailTextField.text!.isEmpty {
             let alertController = UIAlertController(title: "註冊時發生錯誤",
                 message: "電子信箱忘記填寫",
                 preferredStyle: UIAlertControllerStyle.Alert
@@ -245,7 +245,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         user.password = passwordTextField.text
         //確保電子郵件都是小寫
         var userEmailAddress = emailTextField.text
-        userEmailAddress = userEmailAddress.lowercaseString
+        userEmailAddress = userEmailAddress!.lowercaseString
         user.email = userEmailAddress
         //因為Facebook註冊登錄，預設user欄位不是電話號碼，所以得另外存一個phone
         user["phone"] = userTextField.text
@@ -265,7 +265,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.hidden = true
                 
-                if let message: AnyObject = error!.userInfo!["error"] {
+                if let message: AnyObject = error!.userInfo["error"] {
                     let alertController = UIAlertController(title: "註冊時發生錯誤",
                         message: message as? String,
                         preferredStyle: UIAlertControllerStyle.Alert

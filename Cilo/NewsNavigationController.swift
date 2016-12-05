@@ -17,9 +17,9 @@ class NewsNavigationController: UINavigationController {
     /**
     Customize the look of the status bar
     
-    :returns: return the statusbar style of the topViewController
+    - returns: return the statusbar style of the topViewController
     */
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return topViewController.preferredStatusBarStyle()
+        return topViewController!.preferredStatusBarStyle()
     }
 }

@@ -20,10 +20,10 @@ class StoreCategory: NSObject {
     /**
     Initialise it with name and ID
 
-    :param: name     name of the category
-    :param: objectID id of the category
+    - parameter name:     name of the category
+    - parameter objectID: id of the category
 
-    :returns: initialised category object
+    - returns: initialised category object
     */
     init(name: String, objectID: String) {
         self.name = name
@@ -39,7 +39,7 @@ class StoreCategory: NSObject {
     /**
     Creates a PFObject from StoreCategory
 
-    :returns: PFObject
+    - returns: PFObject
     */
     func parseObject() -> PFObject {
         return PFObject(withoutDataWithObjectId: objectID)

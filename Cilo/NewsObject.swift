@@ -30,10 +30,10 @@ class NewsObject: BaseObject {
     /**
         Initialize the newsObject with title, date, descriptionText and imageURL
     
-        :param: title title of the news
-        :param: date date when the news was created
-        :param: descriptionText the content
-        :param: imageURL url of the image for the news
+        - parameter title: title of the news
+        - parameter date: date when the news was created
+        - parameter descriptionText: the content
+        - parameter imageURL: url of the image for the news
     */
     init(title: NSString, date: NSDate, descriptionText: NSString, image: PFFile, work: NSString, userName: NSString, userPhoto: PFFile, userObject:PFObject) {
         self.title = title as String
